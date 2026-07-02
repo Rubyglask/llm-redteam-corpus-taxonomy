@@ -444,10 +444,15 @@ def _write_manifest(tier: str, rows: list[dict], out_dir: Path) -> dict:
     return manifest
 
 
+def _in_tier(s: Source, tier: str) -> bool:
+    """tier='full' selects every enabled source (both core + extended)."""
+    return s.enabled and (tier == "full" or s.tier == tier)
+
+
 def _write_sources_json(tier: str, out_dir: Path) -> None:
     """Per-source attribution file (MIT/CC-BY require preserving notices)."""
     srcs = sorted(
-        (s for s in SOURCES.values() if s.enabled and s.tier == tier),
+        (s for s in SOURCES.values() if _in_tier(s, tier)),
         key=lambda s: s.source_id,
     )
     data = [
@@ -468,7 +473,7 @@ def _write_sources_json(tier: str, out_dir: Path) -> None:
 def build_corpus(tier: str, raw_dir: Path, out_dir: Path) -> dict:
     """Build one tier's distribution from downloaded raw data."""
     srcs = sorted(
-        (s for s in SOURCES.values() if s.enabled and s.tier == tier),
+        (s for s in SOURCES.values() if _in_tier(s, tier)),
         key=lambda s: priority_rank(s.source_id),
     )
     pairs: list[tuple[Source, dict]] = []

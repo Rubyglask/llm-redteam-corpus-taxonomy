@@ -28,6 +28,9 @@ configs:
 schema as the core dataset. Kept separate so the `core` tier stays commercially
 usable. PII (phone / address) is masked, same as core.
 
+**This is the non-commercial sources *only*.** Want everything (all 12 sources,
+64,458 rows)? → [`-full`](https://huggingface.co/datasets/rubyglask/llm-redteam-corpus-taxonomy-full).
+
 ## Quick start
 
 ```python

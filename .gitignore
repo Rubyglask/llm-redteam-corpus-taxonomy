@@ -24,6 +24,8 @@ data/core/canonical.parquet
 data/core/canonical.duckdb
 data/extended/canonical.parquet
 data/extended/canonical.duckdb
+data/full/canonical.parquet
+data/full/canonical.duckdb
 
 # ── Python ───────────────────────────────────────────────────────────────
 __pycache__/

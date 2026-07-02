@@ -18,7 +18,7 @@ from redteam_corpus.pipeline import build_corpus
 
 def main() -> int:
     parser = argparse.ArgumentParser(description="Build canonical corpus distribution.")
-    parser.add_argument("--tier", choices=["core", "extended"], required=True)
+    parser.add_argument("--tier", choices=["core", "extended", "full"], required=True)
     parser.add_argument("--out", type=Path, required=True)
     parser.add_argument("--raw", type=Path, default=Path("data/raw"))
     args = parser.parse_args()

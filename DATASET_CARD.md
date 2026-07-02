@@ -32,8 +32,11 @@ configs:
 Use one clean dataset instead of downloading and fixing 9 red-team benchmarks by
 hand. Every prompt keeps its **source**, **license**, and **citation**. The
 `core` tier is safe to use in commercial products — every source is verified
-MIT / Apache-2.0 / CC-BY-4.0. Non-commercial sources are in the separate
-`-extended` dataset.
+MIT / Apache-2.0 / CC-BY-4.0.
+
+**Other versions:** want *everything* (all 12 sources, 64,458 rows,
+non-commercial)? → [`-full`](https://huggingface.co/datasets/rubyglask/llm-redteam-corpus-taxonomy-full).
+Only the non-commercial sources? → [`-extended`](https://huggingface.co/datasets/rubyglask/llm-redteam-corpus-taxonomy-extended).
 
 - ✅ **9 sources, license-verified** — checked live against each upstream repo
 - ✅ **License-clean core** — safe for guardrail products and evaluations

@@ -1,0 +1,23 @@
+{
+  "tier": "full",
+  "schema_version": "1.0",
+  "num_rows": 64458,
+  "sources": [
+    "aart",
+    "advbench",
+    "alert",
+    "anthropic_hh",
+    "beavertails",
+    "do_not_answer",
+    "forbidden_question_set",
+    "harmbench",
+    "harmfulqa",
+    "jailbreakbench",
+    "lmsys_toxic",
+    "tdc23"
+  ],
+  "files": {
+    "canonical.jsonl.gz": "dbe20753d919c02e463ecc578d5d6c356fe49c0a058d8f7fdcb3bbac43859cf0",
+    "canonical.parquet": "8123bc97ab9c051e52677ee4558960e9217444fba220ad96009d7d52ceb0ea29"
+  }
+}

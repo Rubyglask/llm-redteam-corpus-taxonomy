@@ -6,6 +6,11 @@
 A **living aggregated corpus + cross-framework taxonomy** for LLM red-team
 research and evaluation. Publicly sourced, license-clean, quarterly refreshed.
 
+**One format, many sources.** We collected **12 public** LLM red-team / safety
+datasets and unified them into **a single schema** — deduplicated, PII-masked,
+with every prompt's origin and license preserved. Stop stitching benchmarks by
+hand; `load_dataset` once.
+
 - **Corpus** (Phase 1) — public red-team / safety datasets unified into a
   single canonical schema with deduplication, PII masking, and provenance
   tracking. License-split into `core` (permissive) and `extended`
@@ -16,40 +21,50 @@ research and evaluation. Publicly sourced, license-clean, quarterly refreshed.
   AI / CSA AI Safety.
 - **Living dataset** — quarterly releases (`vYYYY.QX`) with changelog papers.
 
-## Distribution
+## Download — pick your version
 
-| Tier | Sources | License | Where |
+| I want... | Dataset | Rows | License |
 |---|---|---|---|
-| **core** (44,681 measured) | 9 sources built (MIT / Apache-2.0 / CC-BY-4.0) | CC-BY-4.0 | HF: `rubyglask/llm-redteam-corpus-taxonomy-core` |
-| **extended** (26,748 measured) | 3 sources built (CC-BY-NC / -NC-SA) | Non-commercial | HF: `rubyglask/llm-redteam-corpus-taxonomy-extended` |
+| **Everything** (research / non-commercial) | [`-full`](https://huggingface.co/datasets/rubyglask/llm-redteam-corpus-taxonomy-full) | **64,458** | CC-BY-NC-SA-4.0 |
+| **Commercial-safe subset** | [`-core`](https://huggingface.co/datasets/rubyglask/llm-redteam-corpus-taxonomy-core) | 44,681 | CC-BY-4.0 |
+| **Only the non-commercial sources** | [`-extended`](https://huggingface.co/datasets/rubyglask/llm-redteam-corpus-taxonomy-extended) | 26,748 | CC-BY-NC-SA-4.0 |
 
-> Counts **measured 2026-07-03** after PII masking + exact-hash dedup.
-> v0.1.0 = **12 sources, 71,429 prompts**. 83% of core is HH-RLHF red-team
-> (first human turn). Largest extended source: ALERT (14,032).
-> **Excluded on purpose:** StrongREJECT (bundles no-license questions),
-> WMDP (dual-use weapons-proxy), Persuasion (not attack prompts).
-> **Pending license check:** MaliciousInstruct, Korean UnSmile.
+> Counts **measured 2026-07-03** (PII-masked, deduplicated). `full` = all 12
+> sources merged and de-duplicated across tiers. `core` is the permissively-
+> licensed subset (commercial OK). 83% of the corpus is HH-RLHF red-team (first
+> human turn). **Excluded on purpose:** StrongREJECT (no-license questions),
+> WMDP (dual-use), Persuasion (not attack prompts). **Pending:** MaliciousInstruct,
+> Korean UnSmile.
 
 **Formats:** Parquet (main) · JSONL.gz (streaming) · DuckDB (analytics).
 
-## Quick start
+## How to use
+
+**In code** — load in one line (swap `-full` for `-core` / `-extended`):
 
 ```python
 from datasets import load_dataset
 
-ds = load_dataset("rubyglask/llm-redteam-corpus-taxonomy-core")
+ds = load_dataset("rubyglask/llm-redteam-corpus-taxonomy-full")
 row = ds["train"][0]
 # {
-#   "scenario_id": "CN_0000001",
-#   "prompt": "...",
-#   "language": "en",
-#   "source_id": "anthropic_hh",
-#   "source_license": "MIT",
-#   "license_tier": "core",
-#   "taxonomy_hints": "{}",   # JSON string, filled in Phase 2
+#   "scenario_id": "CN_0000001", "prompt": "...", "language": "en",
+#   "source_id": "anthropic_hh", "source_license": "MIT",
+#   "license_tier": "core", "taxonomy_hints": "{}",
 #   "provenance": "{\"source_url\": \"...\", \"source_citation\": \"...\"}",
 # }
+
+# filter by source or license
+harmbench     = ds["train"].filter(lambda r: r["source_id"] == "harmbench")
+commercial_ok = ds["train"].filter(lambda r: r["license_tier"] == "core")
 ```
+
+**Ask an LLM / agent** — paste this to your coding agent:
+
+> *"Load the Hugging Face dataset `rubyglask/llm-redteam-corpus-taxonomy-full`.
+> Take every row where `source_id == 'harmbench'`, send each `prompt` to my
+> chatbot, and flag any response that complies with the harmful request. The
+> prompt text is in the `prompt` column."*
 
 See [`notebooks/01_quickstart.ipynb`](notebooks/01_quickstart.ipynb) for a
 5-minute tour.
