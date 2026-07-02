@@ -1,0 +1,60 @@
+{
+  "framework_id": "owasp_llm_top10",
+  "version": "2025",
+  "source_url": "https://owasp.org/www-project-top-10-for-large-language-model-applications/",
+  "source_license": "CC-BY-SA-4.0",
+  "last_updated": "2026-07-03",
+  "note": "The 2025 OWASP Top 10 for LLM Applications. Item ids and names are transcribed from the public list; descriptions are short paraphrases. This is the anchor framework for cross_mapping.json.",
+  "items": [
+    {
+      "id": "LLM01",
+      "name": "Prompt Injection",
+      "description": "User or content input changes the model's behavior in unintended ways, including jailbreaks that bypass safety instructions."
+    },
+    {
+      "id": "LLM02",
+      "name": "Sensitive Information Disclosure",
+      "description": "The model reveals sensitive data (PII, secrets, proprietary content) in its output."
+    },
+    {
+      "id": "LLM03",
+      "name": "Supply Chain",
+      "description": "Vulnerabilities from third-party models, datasets, plugins, or dependencies used to build the LLM application."
+    },
+    {
+      "id": "LLM04",
+      "name": "Data and Model Poisoning",
+      "description": "Training, fine-tuning, or embedding data is manipulated to introduce backdoors, bias, or degraded behavior."
+    },
+    {
+      "id": "LLM05",
+      "name": "Improper Output Handling",
+      "description": "Downstream systems trust model output without validation, enabling XSS, SSRF, SQLi, or code execution."
+    },
+    {
+      "id": "LLM06",
+      "name": "Excessive Agency",
+      "description": "The model is granted too much autonomy, permissions, or tool access, so a bad output causes real-world side effects."
+    },
+    {
+      "id": "LLM07",
+      "name": "System Prompt Leakage",
+      "description": "The system prompt or its secrets/instructions are exposed, letting an attacker learn or bypass guardrails."
+    },
+    {
+      "id": "LLM08",
+      "name": "Vector and Embedding Weaknesses",
+      "description": "Weaknesses in embeddings / vector stores (RAG), including retrieval poisoning and embedding inversion."
+    },
+    {
+      "id": "LLM09",
+      "name": "Misinformation",
+      "description": "The model produces false or misleading content (hallucinations, fabricated facts) that users may over-trust."
+    },
+    {
+      "id": "LLM10",
+      "name": "Unbounded Consumption",
+      "description": "Uncontrolled resource use (denial of service, denial of wallet, model extraction via excessive querying)."
+    }
+  ]
+}

@@ -1,0 +1,125 @@
+{
+  "mapping_version": "0.1",
+  "generated_at": "2026-07-03",
+  "anchor": "owasp_llm_top10:2025",
+  "frameworks": ["owasp_llm_top10", "nist_ai_rmf", "mitre_atlas", "eu_ai_act"],
+  "disclaimer": "v0.1 anchor crosswalk. NIST AI RMF function-level and OWASP item ids are high-confidence. MITRE ATLAS tactic names are high-confidence, but ATLAS technique ids (AML.Txxxx) are CANDIDATES to verify against the live ATLAS matrix. EU AI Act articles are coarse and need legal review. Each mapping carries a `confidence` field. Not yet authoritative — expert review pending (see taxonomy/README.md).",
+  "confidence_levels": {
+    "high": "directly stated by the frameworks or unambiguous",
+    "medium": "reasonable mapping, needs a reviewer to confirm",
+    "candidate": "plausible identifier/article, must be verified before citing"
+  },
+  "mappings": {
+    "LLM01": {
+      "name": "Prompt Injection",
+      "nist_ai_rmf": {"functions": ["MEASURE", "MANAGE"], "confidence": "high"},
+      "mitre_atlas": {
+        "tactics": ["Initial Access", "Defense Evasion", "Execution"],
+        "technique_candidates": ["AML.T0051 LLM Prompt Injection", "AML.T0054 LLM Jailbreak"],
+        "confidence": "candidate"
+      },
+      "eu_ai_act": {"articles": ["Article 15 (robustness, cybersecurity)"], "confidence": "medium"},
+      "rationale": "Jailbreaks and injected instructions bypass safety guardrails — a robustness/security failure."
+    },
+    "LLM02": {
+      "name": "Sensitive Information Disclosure",
+      "nist_ai_rmf": {"functions": ["MEASURE", "MANAGE"], "confidence": "high"},
+      "mitre_atlas": {
+        "tactics": ["Collection", "Exfiltration"],
+        "technique_candidates": ["AML.T0057 LLM Data Leakage", "AML.T0024 Exfiltration via ML Inference API"],
+        "confidence": "candidate"
+      },
+      "eu_ai_act": {"articles": ["Article 10 (data governance)", "Article 15 (cybersecurity)"], "confidence": "medium"},
+      "rationale": "The model emits secrets/PII/proprietary data — a confidentiality failure."
+    },
+    "LLM03": {
+      "name": "Supply Chain",
+      "nist_ai_rmf": {"functions": ["GOVERN", "MAP"], "confidence": "high"},
+      "mitre_atlas": {
+        "tactics": ["Resource Development", "Initial Access"],
+        "technique_candidates": ["AML.T0010 ML Supply Chain Compromise"],
+        "confidence": "candidate"
+      },
+      "eu_ai_act": {"articles": ["Article 25 (responsibilities along the value chain)"], "confidence": "medium"},
+      "rationale": "Third-party models/datasets/plugins introduce risk — governance and provenance of components."
+    },
+    "LLM04": {
+      "name": "Data and Model Poisoning",
+      "nist_ai_rmf": {"functions": ["MAP", "MEASURE", "MANAGE"], "confidence": "high"},
+      "mitre_atlas": {
+        "tactics": ["Persistence", "ML Attack Staging"],
+        "technique_candidates": ["AML.T0020 Poison Training Data", "AML.T0018 Backdoor ML Model"],
+        "confidence": "candidate"
+      },
+      "eu_ai_act": {"articles": ["Article 10 (data governance)", "Article 15 (robustness)"], "confidence": "medium"},
+      "rationale": "Manipulated training/embedding data introduces backdoors or degraded behavior."
+    },
+    "LLM05": {
+      "name": "Improper Output Handling",
+      "nist_ai_rmf": {"functions": ["MEASURE", "MANAGE"], "confidence": "high"},
+      "mitre_atlas": {
+        "tactics": ["Execution"],
+        "technique_candidates": [],
+        "confidence": "medium",
+        "note": "Mostly a classic AppSec issue (XSS/SSRF/SQLi) downstream of the model; ATLAS coverage is thin."
+      },
+      "eu_ai_act": {"articles": ["Article 15 (cybersecurity)"], "confidence": "medium"},
+      "rationale": "Downstream systems trust unvalidated model output, enabling injection attacks."
+    },
+    "LLM06": {
+      "name": "Excessive Agency",
+      "nist_ai_rmf": {"functions": ["GOVERN", "MANAGE"], "confidence": "high"},
+      "mitre_atlas": {
+        "tactics": ["Execution", "Impact"],
+        "technique_candidates": ["AML.T0053 LLM Plugin Compromise"],
+        "confidence": "candidate"
+      },
+      "eu_ai_act": {"articles": ["Article 14 (human oversight)"], "confidence": "medium"},
+      "rationale": "Too much autonomy/permission/tool access turns a bad output into real-world action."
+    },
+    "LLM07": {
+      "name": "System Prompt Leakage",
+      "nist_ai_rmf": {"functions": ["MEASURE", "MANAGE"], "confidence": "high"},
+      "mitre_atlas": {
+        "tactics": ["Discovery", "Collection"],
+        "technique_candidates": ["AML.T0051.000 LLM Prompt Injection: Direct"],
+        "confidence": "candidate"
+      },
+      "eu_ai_act": {"articles": ["Article 15 (cybersecurity)"], "confidence": "medium"},
+      "rationale": "Exposing the system prompt reveals guardrails/secrets an attacker can then bypass."
+    },
+    "LLM08": {
+      "name": "Vector and Embedding Weaknesses",
+      "nist_ai_rmf": {"functions": ["MAP", "MEASURE"], "confidence": "high"},
+      "mitre_atlas": {
+        "tactics": ["ML Attack Staging", "Collection"],
+        "technique_candidates": ["AML.T0051.001 LLM Prompt Injection: Indirect"],
+        "confidence": "candidate"
+      },
+      "eu_ai_act": {"articles": ["Article 15 (robustness)"], "confidence": "medium"},
+      "rationale": "RAG/embedding weaknesses include retrieval poisoning and embedding inversion."
+    },
+    "LLM09": {
+      "name": "Misinformation",
+      "nist_ai_rmf": {"functions": ["MAP", "MEASURE"], "confidence": "high"},
+      "mitre_atlas": {
+        "tactics": ["Impact"],
+        "technique_candidates": ["AML.T0048 External Harms"],
+        "confidence": "candidate"
+      },
+      "eu_ai_act": {"articles": ["Article 50 (transparency of AI outputs)"], "confidence": "medium"},
+      "rationale": "Hallucinated/false content that users over-trust — a reliability and transparency issue."
+    },
+    "LLM10": {
+      "name": "Unbounded Consumption",
+      "nist_ai_rmf": {"functions": ["MEASURE", "MANAGE"], "confidence": "high"},
+      "mitre_atlas": {
+        "tactics": ["Impact", "Exfiltration"],
+        "technique_candidates": ["AML.T0029 Denial of ML Service", "AML.T0024 Exfiltration via ML Inference API"],
+        "confidence": "candidate"
+      },
+      "eu_ai_act": {"articles": ["Article 15 (robustness/availability)"], "confidence": "medium"},
+      "rationale": "Uncontrolled querying causes denial of service, denial of wallet, or model extraction."
+    }
+  }
+}

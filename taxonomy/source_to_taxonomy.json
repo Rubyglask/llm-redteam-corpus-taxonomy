@@ -1,0 +1,20 @@
+{
+  "mapping_version": "0.1",
+  "generated_at": "2026-07-03",
+  "anchor": "owasp_llm_top10:2025",
+  "note": "Source-level mapping: what OWASP LLM category each corpus source primarily exercises. All sources are collections of ATTACK PROMPTS that try to elicit unsafe output, so the attack vector is LLM01 (Prompt Injection / jailbreak) for every source. `secondary` lists the documented harm focus of a source where it maps to another category. This is coarse, source-level intent; per-PROMPT harm classification (which fills each row's `taxonomy_hints`) is the next Phase-2 step and needs a classifier, not a lookup.",
+  "sources": {
+    "advbench": {"primary": "LLM01", "secondary": [], "focus": "harmful behaviors (weapons, hacking, fraud)"},
+    "harmbench": {"primary": "LLM01", "secondary": ["LLM09"], "focus": "standardized harmful behaviors incl. chem/bio, cyber, misinformation"},
+    "jailbreakbench": {"primary": "LLM01", "secondary": [], "focus": "standardized jailbreak behaviors"},
+    "tdc23": {"primary": "LLM01", "secondary": [], "focus": "red-teaming track prompts"},
+    "forbidden_question_set": {"primary": "LLM01", "secondary": [], "focus": "questions forbidden by usage policy (DAN)"},
+    "do_not_answer": {"primary": "LLM01", "secondary": ["LLM02"], "focus": "questions a model should refuse, across risk areas incl. privacy"},
+    "harmfulqa": {"primary": "LLM01", "secondary": [], "focus": "harmful questions across topics"},
+    "aart": {"primary": "LLM01", "secondary": [], "focus": "AI-assisted red-team, region-tailored harms"},
+    "anthropic_hh": {"primary": "LLM01", "secondary": [], "focus": "human red-team attempts (first turn)"},
+    "beavertails": {"primary": "LLM01", "secondary": ["LLM02", "LLM09"], "focus": "QA labeled across harm categories incl. privacy and misinformation"},
+    "alert": {"primary": "LLM01", "secondary": [], "focus": "safety categories (hate, self-harm, weapons, ...)"},
+    "lmsys_toxic": {"primary": "LLM01", "secondary": [], "focus": "toxic / jailbreaking user prompts from real traffic"}
+  }
+}

@@ -1,23 +1,45 @@
 # taxonomy/
 
-> **Status:** Skeleton — populated in **Phase 2** (2026-Q4).
+> **Status:** Phase 2 **v0.1 (anchor)** shipped 2026-07-03. OWASP LLM Top 10 is
+> the anchor; the crosswalk to other frameworks is confidence-tagged and not yet
+> authoritative (expert review pending).
 
-This directory will host canonical JSON representations of LLM-security
-frameworks plus a bidirectional cross-mapping asset.
+Canonical JSON of LLM-security frameworks plus a cross-mapping asset — the
+project's main differentiator (no unified public crosswalk exists today).
 
-## Planned files (Phase 2)
+## Shipped (v0.1)
 
 ```
 taxonomy/
-├── owasp_llm_top10.json         # v1.1 + v2 (when released)
-├── mitre_atlas.json             # tactics + techniques
-├── nist_ai_rmf.json             # AI 100-1 + AI 600-1
-├── eu_ai_act.json               # Articles 5, 15, Annex III
-├── iso_iec_42001.json           # 2023 AI management standard
-├── kisa_ai_guide.json           # KR — KISA AI security guide
-├── cloud_security_alliance_ai.json  # CSA AI Safety Initiative
-└── cross_mapping.json           # ⭐ bidirectional lookup (~300+ items)
+├── owasp_llm_top10.json      ✅ 10 items (2025), high confidence
+├── cross_mapping.json        ✅ OWASP → NIST AI RMF + MITRE ATLAS + EU AI Act
+│                                (per-item confidence: high / medium / candidate)
+└── source_to_taxonomy.json   ✅ each corpus source → OWASP category
 ```
+
+**Honesty of v0.1:** OWASP ids and NIST AI RMF **function-level** mappings are
+high confidence. MITRE ATLAS **tactic names** are high confidence, but ATLAS
+**technique ids** (`AML.Txxxx`) are `candidate` — verify against the live ATLAS
+matrix before citing. EU AI Act articles are coarse and need legal review.
+Every mapping carries a `confidence` field; `cross_mapping.json` states this.
+
+Consistency is enforced by `tests/test_taxonomy.py` (all 10 OWASP items covered;
+source map references only valid ids and real shipped sources).
+
+## Planned (later Phase 2)
+
+```
+├── mitre_atlas.json          # full tactics + verified technique ids
+├── nist_ai_rmf.json          # AI 100-1 + AI 600-1 categories
+├── eu_ai_act.json            # Articles 5, 15, 50, Annex III
+├── iso_iec_42001.json        # 2023 AI management standard
+├── kisa_ai_guide.json        # KR — KISA AI security guide
+└── cloud_security_alliance_ai.json
+```
+
+Next steps: expert review of the crosswalk, verify ATLAS technique ids, add the
+remaining framework JSONs, then a per-prompt classifier to fill each corpus
+row's `taxonomy_hints` (currently `"{}"`).
 
 ## Canonical framework JSON schema (Phase 2 target)
 
