@@ -1,0 +1,14 @@
+{
+  "tier": "extended",
+  "schema_version": "1.0",
+  "num_rows": 26748,
+  "sources": [
+    "alert",
+    "beavertails",
+    "lmsys_toxic"
+  ],
+  "files": {
+    "canonical.jsonl.gz": "8241af28fcdd8db95f8b0eefb814feb213b8969d15f9ea3cca5b8c33e8ef8041",
+    "canonical.parquet": "72c2c3a04655eb409616e246c2ef91bb7abc69f4808988b34a162e80f8f4df80"
+  }
+}

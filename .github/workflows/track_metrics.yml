@@ -1,0 +1,32 @@
+name: track HF metrics
+
+on:
+  schedule:
+    - cron: "37 3 * * 1"   # every Monday 03:37 UTC (~ Mon 12:37 KST)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  snapshot:
+    name: weekly HF metrics snapshot
+    runs-on: ubuntu-latest
+    # Enable after HF datasets are live (Phase 1 Week 9).
+    if: false
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - run: pip install huggingface_hub
+      - run: python scripts/track_hf_metrics.py
+      - name: commit snapshot
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/evidence/hf_metrics_weekly.jsonl
+          git diff --cached --quiet || git commit -m "chore(evidence): weekly HF metrics snapshot"
+          git push

@@ -1,0 +1,65 @@
+[
+  {
+    "source_id": "aart",
+    "hf_repo": "walledai/AART",
+    "license": "CC-BY-4.0",
+    "citation": "Radharapu et al. (2023), AART: AI-Assisted Red-Teaming",
+    "source_url": "https://huggingface.co/datasets/walledai/AART"
+  },
+  {
+    "source_id": "advbench",
+    "hf_repo": "llm-attacks/llm-attacks",
+    "license": "MIT",
+    "citation": "Zou et al. (2023), Universal and Transferable Adversarial Attacks on Aligned Language Models",
+    "source_url": "https://github.com/llm-attacks/llm-attacks"
+  },
+  {
+    "source_id": "anthropic_hh",
+    "hf_repo": "Anthropic/hh-rlhf",
+    "license": "MIT",
+    "citation": "Ganguli et al. (2022), Red Teaming Language Models to Reduce Harms (hh-rlhf red-team-attempts)",
+    "source_url": "https://huggingface.co/datasets/Anthropic/hh-rlhf"
+  },
+  {
+    "source_id": "do_not_answer",
+    "hf_repo": "LibrAI/do-not-answer",
+    "license": "Apache-2.0",
+    "citation": "Wang et al. (2023), Do-Not-Answer: A Dataset for Evaluating Safeguards in LLMs",
+    "source_url": "https://huggingface.co/datasets/LibrAI/do-not-answer"
+  },
+  {
+    "source_id": "forbidden_question_set",
+    "hf_repo": "TrustAIRLab/forbidden_question_set",
+    "license": "MIT",
+    "citation": "Shen et al. (2023), 'Do Anything Now' forbidden question set",
+    "source_url": "https://huggingface.co/datasets/TrustAIRLab/forbidden_question_set"
+  },
+  {
+    "source_id": "harmbench",
+    "hf_repo": "centerforaisafety/HarmBench",
+    "license": "MIT",
+    "citation": "Mazeika et al. (2024), HarmBench",
+    "source_url": "https://github.com/centerforaisafety/HarmBench"
+  },
+  {
+    "source_id": "harmfulqa",
+    "hf_repo": "declare-lab/HarmfulQA",
+    "license": "Apache-2.0",
+    "citation": "Bhardwaj & Poria (2023), HarmfulQA",
+    "source_url": "https://huggingface.co/datasets/declare-lab/HarmfulQA"
+  },
+  {
+    "source_id": "jailbreakbench",
+    "hf_repo": "JailbreakBench/JBB-Behaviors",
+    "license": "MIT",
+    "citation": "Chao et al. (2024), JailbreakBench",
+    "source_url": "https://huggingface.co/datasets/JailbreakBench/JBB-Behaviors"
+  },
+  {
+    "source_id": "tdc23",
+    "hf_repo": "walledai/TDC23-RedTeaming",
+    "license": "MIT",
+    "citation": "Mazeika et al. (2023), TDC 2023 Red-Teaming Track",
+    "source_url": "https://huggingface.co/datasets/walledai/TDC23-RedTeaming"
+  }
+]

@@ -1,0 +1,61 @@
+# ── Secrets & credentials (NEVER commit) ─────────────────────────────────
+.env
+.env.*
+*.env
+secrets/
+credentials/
+*.pem
+*.key
+*.p12
+.aws/
+.hf_token
+*_token*
+*_secret*
+*password*
+
+# ── Raw data downloads (large, reproducible from scripts) ────────────────
+data/raw/
+data/tmp/
+*.jsonl.gz
+*.parquet.bak
+
+# ── Build artifacts (rebuildable; only manifest.json is tracked) ──────────
+data/core/canonical.parquet
+data/core/canonical.duckdb
+data/extended/canonical.parquet
+data/extended/canonical.duckdb
+
+# ── Python ───────────────────────────────────────────────────────────────
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.venv/
+venv/
+env/
+.tox/
+
+# ── Jupyter ──────────────────────────────────────────────────────────────
+.ipynb_checkpoints/
+
+# ── IDE ──────────────────────────────────────────────────────────────────
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# ── OS ───────────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── Evidence tracking (auto-generated) ───────────────────────────────────
+data/evidence/*.tmp

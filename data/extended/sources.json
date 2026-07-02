@@ -1,0 +1,23 @@
+[
+  {
+    "source_id": "alert",
+    "hf_repo": "Babelscape/ALERT",
+    "license": "CC-BY-NC-SA-4.0",
+    "citation": "Tedeschi et al. (2024), ALERT",
+    "source_url": "https://huggingface.co/datasets/Babelscape/ALERT"
+  },
+  {
+    "source_id": "beavertails",
+    "hf_repo": "PKU-Alignment/BeaverTails",
+    "license": "CC-BY-NC-4.0",
+    "citation": "Ji et al. (2023), BeaverTails",
+    "source_url": "https://huggingface.co/datasets/PKU-Alignment/BeaverTails"
+  },
+  {
+    "source_id": "lmsys_toxic",
+    "hf_repo": "lmsys/toxic-chat",
+    "license": "CC-BY-NC-4.0",
+    "citation": "Lin et al. (2023), ToxicChat",
+    "source_url": "https://huggingface.co/datasets/lmsys/toxic-chat"
+  }
+]

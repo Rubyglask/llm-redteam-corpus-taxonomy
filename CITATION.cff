@@ -1,0 +1,40 @@
+cff-version: 1.2.0
+title: "LLM Red-Team Corpus + Taxonomy (Core)"
+message: >-
+  If you use this dataset in academic or industry work, please cite it using
+  the metadata below. Upstream sources retain their own citation requirements —
+  see docs/license_matrix.md and data/core/sources.json.
+type: dataset
+authors:
+  - given-names: rubyglask
+    email: rubyglask@gmail.com
+repository-code: "https://github.com/rubyglask/llm-redteam-corpus-taxonomy"
+url: "https://huggingface.co/datasets/rubyglask/llm-redteam-corpus-taxonomy-core"
+abstract: >-
+  A living aggregated corpus of publicly sourced adversarial prompts and
+  safety-evaluation scenarios for LLM red-team research. Includes 17 upstream
+  datasets unified into a canonical schema with deduplication, provenance
+  tracking, and cross-framework taxonomy hints (OWASP LLM Top 10, MITRE
+  ATLAS, plus additional frameworks in Phase 2). License-split into a
+  permissively licensed `core` tier (9 sources, 44,681 prompts) and a
+  non-commercial `extended` tier (3 sources, 26,748 prompts), measured
+  2026-07-03. 3 sources are excluded (license / dual-use / scope); 2 remain
+  pending upstream license verification.
+keywords:
+  - llm-security
+  - red-teaming
+  - adversarial-prompts
+  - jailbreak
+  - owasp-llm-top10
+  - mitre-atlas
+  - dataset
+  - safety-evaluation
+license: CC-BY-4.0
+version: 0.1.0-dev
+date-released: "2026-07-02"
+# identifiers (DOI) to be filled in Phase 1 Week 8:
+# identifiers:
+#   - type: doi
+#     value: 10.5281/zenodo.XXXXXXX
+#   - type: other
+#     value: arXiv:XXXX.XXXXX
