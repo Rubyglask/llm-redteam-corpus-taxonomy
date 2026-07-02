@@ -4,8 +4,14 @@
 > the anchor; the crosswalk to other frameworks is confidence-tagged and not yet
 > authoritative (expert review pending).
 
-Canonical JSON of LLM-security frameworks plus a cross-mapping asset — the
-project's main differentiator (no unified public crosswalk exists today).
+Canonical JSON of LLM-security frameworks plus a cross-mapping asset.
+
+**Honest scope:** framework-to-framework crosswalks **already exist** — OWASP's
+own LLM Top 10 page maps to NIST AI RMF / ISO 42001 / EU AI Act / MITRE ATLAS /
+CISA, and third-party crosswalks exist too. This file is **not** a novel
+crosswalk; it is a convenience copy for use *with this corpus*. The only less-
+common angle is tying framework labels to the actual prompts (per-prompt hints),
+which is future work.
 
 ## Shipped (v0.1)
 

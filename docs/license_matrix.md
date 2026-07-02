@@ -39,17 +39,17 @@ license identifier — this is a redistribution risk, not a green light.
 
 | # | Source | Upstream | Verified license (2026-07-02) | Tier |
 |---|---|---|---|---|
-| 12 | **BeaverTails** | HF: PKU-Alignment/BeaverTails | CC-BY-NC-4.0 | extended |
-| 13 | **ALERT** | HF: Babelscape/ALERT | CC-BY-NC-SA-4.0 | extended |
-| 14 | **LMSYS Toxic-Chat** | HF: lmsys/toxic-chat | CC-BY-NC-4.0 | extended |
+| 10 | **BeaverTails** | HF: PKU-Alignment/BeaverTails | CC-BY-NC-4.0 | extended |
+| 11 | **ALERT** | HF: Babelscape/ALERT | CC-BY-NC-SA-4.0 | extended |
+| 12 | **LMSYS Toxic-Chat** | HF: lmsys/toxic-chat | CC-BY-NC-4.0 | extended |
 
 ## Excluded — kept out of v0.1.0 on purpose (3 sources)
 
 | # | Source | Upstream | License | Reason |
 |---|---|---|---|---|
-| 10 | **StrongREJECT** | github: alexandrasouly/strongreject | MIT (custom) + **borrowed no-license Qs** | README: custom data is MIT, but questions sourced from prior work keep their original license — including **MaliciousInstruct / HarmfulQ / OpenAI System Card = "no license"**. Cannot be cleanly relicensed to CC-BY-4.0 core. Excluded 2026-07-03 until per-question provenance is verified. |
-| 11 | **WMDP-cyber** | HF: cais/wmdp | MIT | **Dual-use** weapons-proxy knowledge; upstream says benchmark data should never enter training corpora; rows are MCQ stems, not attack prompts. Excluded from a commercial-OK core 2026-07-03. |
-| 12 | **Anthropic Persuasion** | HF: Anthropic/persuasion | CC-BY-NC-SA-4.0 | The `argument` column is persuasive prose, not an attack prompt. Out of red-team scope. |
+| 13 | **StrongREJECT** | github: alexandrasouly/strongreject | MIT (custom) + **borrowed no-license Qs** | README: custom data is MIT, but questions sourced from prior work keep their original license — including **MaliciousInstruct / HarmfulQ / OpenAI System Card = "no license"**. Cannot be cleanly relicensed to CC-BY-4.0 core. Excluded 2026-07-03 until per-question provenance is verified. |
+| 14 | **WMDP-cyber** | HF: cais/wmdp | MIT | **Dual-use** weapons-proxy knowledge; upstream says benchmark data should never enter training corpora; rows are MCQ stems, not attack prompts. Excluded from a commercial-OK core 2026-07-03. |
+| 15 | **Anthropic Persuasion** | HF: Anthropic/persuasion | CC-BY-NC-SA-4.0 | The `argument` column is persuasive prose, not an attack prompt. Out of red-team scope. |
 
 ## Pending — license unconfirmed, EXCLUDED from v0.1.0 (2 sources)
 
