@@ -12,8 +12,6 @@ jobs:
   snapshot:
     name: weekly HF metrics snapshot
     runs-on: ubuntu-latest
-    # Enable after HF datasets are live (Phase 1 Week 9).
-    if: false
     steps:
       - uses: actions/checkout@v5
         with:
@@ -22,7 +20,8 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install huggingface_hub
-      - run: python scripts/track_hf_metrics.py
+      - name: record snapshot
+        run: python scripts/track_hf_metrics.py --at "$(date -u +%Y-%m-%dT%H:%M:%SZ)"
       - name: commit snapshot
         run: |
           git config user.name "github-actions[bot]"
